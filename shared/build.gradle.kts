@@ -22,7 +22,7 @@ kotlin {
             baseName = "shared"
         }
     }
-    
+
     sourceSets {
         val commonMain by getting {
             //TODO:: 6.a - Add Dependencies of Core and Ktor
@@ -30,6 +30,7 @@ kotlin {
                 implementation(project(":core"))
                 val ktorVersion = "1.6.8"
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("io.ktor:ktor-client-cio:$ktorVersion")
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
             }
         }
@@ -38,7 +39,12 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            //TODO:: 6.c - Add Dependency of ViewModel
+            dependencies {
+                implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+            }
+        }
         val androidTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting

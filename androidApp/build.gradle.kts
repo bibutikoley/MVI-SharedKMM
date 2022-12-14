@@ -39,5 +39,9 @@ dependencies {
     implementation("androidx.compose.foundation:foundation:1.3.1")
     implementation("androidx.compose.material:material:1.3.1")
     implementation("androidx.activity:activity-compose:1.6.1")
+
     implementation(project(":core"))
+
+    implementation("androidx.activity:activity-ktx:1.6.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
 }

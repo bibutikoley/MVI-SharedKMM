@@ -13,7 +13,7 @@ class NewsViewModel(
     threadInfo = threadInfo,
     initialEffects = setOf(NewsEffects.LoadNewsArticles(type = NewsType.TopHeadlines)),
     processor = NewsProcessor(threadInfo = threadInfo),
-    coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
-        println("Error -> $throwable")
+    coroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        println("Exception Occurred -> $throwable")
     }
 )
