@@ -69,9 +69,9 @@ kotlin {
 
 android {
     namespace = "io.bibuti.samplemvi"
-    compileSdk = 32
+    compileSdk = 33
     defaultConfig {
         minSdk = 27
-        targetSdk = 32
+        targetSdk = 33
     }
 }
