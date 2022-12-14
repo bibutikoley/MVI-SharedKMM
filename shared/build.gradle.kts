@@ -2,6 +2,8 @@ plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     id("com.android.library")
+    //TODO:: 6.b - Apply Serialization Plugin
+    kotlin("plugin.serialization")
 }
 
 kotlin {
@@ -22,7 +24,15 @@ kotlin {
     }
     
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            //TODO:: 6.a - Add Dependencies of Core and Ktor
+            dependencies {
+                implementation(project(":core"))
+                val ktorVersion = "1.6.8"
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
